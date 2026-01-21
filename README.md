@@ -84,6 +84,11 @@ In this phase, we work with image pairs from the LINEMOD test set to establish r
 
 This threshold provides a good trade-off between recall and precision, which is critical for downstream geometric pose estimation.
 
+ORB feature matching on a LINEMOD image pair.
+Keypoints are detected using ORB and matched with a k-NN (k=2) strategy, followed by Lowe’s ratio test (0.75). The resulting correspondences form the basis for downstream geometric pose estimation (PnP).
+
+![ORB feature matching on LINEMOD] <img width="1927" height="564" alt="image" src="https://github.com/user-attachments/assets/36163e56-8445-49b4-85ff-0c27b58567d0" />
+
 ---
 
 ## Phase 2: Template Rendering and 2D–3D Correspondences *(Ongoing)*
@@ -93,5 +98,6 @@ In the classical pipeline, we adopt a template-based approach.
 - Each rendered template provides a direct correspondence between 2D image features and 3D model points.
 - During inference, features from the input image are matched to template features using nearest-neighbor search.
 - 2D–3D correspondences are then used for pose estimation via **PnP**.
+
 
 
