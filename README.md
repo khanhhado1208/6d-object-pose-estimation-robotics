@@ -72,7 +72,7 @@ By rendering the object model from multiple viewpoints, template images with kno
 
 Dataset link:  
 https://bop.felk.cvut.cz/datasets/
-```
+
 ---
 ## Phase 1: Feature Extraction and Matching
 In this phase, we work with image pairs from the LINEMOD test set to establish reliable feature correspondences.
