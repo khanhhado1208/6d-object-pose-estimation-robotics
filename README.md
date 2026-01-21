@@ -71,7 +71,7 @@ By rendering the object model from multiple viewpoints, template images with kno
 
 Dataset link:  
 https://bop.felk.cvut.cz/datasets/
-
+```
 ---
 
 ## Phase 1: Feature Extraction and Matching
@@ -93,4 +93,5 @@ In the classical pipeline, we adopt a template-based approach.
 - Each rendered template provides a direct correspondence between 2D image features and 3D model points.
 - During inference, features from the input image are matched to template features using nearest-neighbor search.
 - 2D–3D correspondences are then used for pose estimation via **PnP**.
+
 
