@@ -52,3 +52,45 @@ Feature matching (nearest neighbour)
 2D–3D correspondences
    ↓
 solvePnP
+
+## Dataset Info
+The dataset provides ground-truth 6D object poses in the **BOP format**.
+
+Each pose is represented by:
+- A 3×3 rotation matrix: `cam_R_m2c`
+- A 3D translation vector (in millimeters): `cam_t_m2c`
+
+The notation **m2c** denotes the transformation from the object model coordinate system to the camera coordinate system.
+
+For the classical baseline, we adopt a **template-based matching approach**.  
+This choice is motivated by:
+- The availability of CAD models (`.ply` files) in the LINEMOD dataset
+- The use of RGB-only images
+
+By rendering the object model from multiple viewpoints, template images with known 3D correspondences can be generated, enabling 2D–3D matching for pose estimation.
+
+Dataset link:  
+https://bop.felk.cvut.cz/datasets/
+
+---
+
+## Phase 1: Feature Extraction and Matching
+In this phase, we work with image pairs from the LINEMOD test set to establish reliable feature correspondences.
+
+- **ORB** is used to detect and describe keypoints in each image.
+- For feature matching, a **k-nearest neighbor (k = 2)** strategy is applied.
+- **Lowe’s ratio test** is used to filter ambiguous matches:
+  - The distance of the nearest neighbor must be at least **25% smaller** than that of the second-nearest neighbor.
+
+This threshold provides a good trade-off between recall and precision, which is critical for downstream geometric pose estimation.
+
+---
+
+## Phase 2: Template Rendering and 2D–3D Correspondences *(Ongoing)*
+In the classical pipeline, we adopt a template-based approach.
+
+- The CAD model of the object is rendered from multiple viewpoints using known camera intrinsics and synthetic poses.
+- Each rendered template provides a direct correspondence between 2D image features and 3D model points.
+- During inference, features from the input image are matched to template features using nearest-neighbor search.
+- 2D–3D correspondences are then used for pose estimation via **PnP**.
+
