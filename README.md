@@ -100,7 +100,3 @@ In the classical pipeline, we adopt a template-based approach.
 
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 0fcc780 (Restructure repository with baselines and assets directories)
