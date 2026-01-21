@@ -53,6 +53,7 @@ Feature matching (nearest neighbour)
    ↓
 solvePnP
 
+```
 ## Dataset Info
 The dataset provides ground-truth 6D object poses in the **BOP format**.
 
