@@ -21,7 +21,8 @@ Reliable 6D pose estimation allows robots to interact with objects accurately an
 ---
 
 ## Approaches
-This project investigates both **classical** and **learning-based** approaches for 6D object pose estimation.
+
+This project investigates both **classical** and **learning-based** approaches for 6D object pose estimation. I created a virtual env by using conda create -n pose6d python=3.9
 
 - **Classical methods** rely on feature extraction and geometric algorithms such as Perspective-n-Point (PnP).
 - **Learning-based methods** aim to improve robustness under occlusion and visual noise.
@@ -91,7 +92,7 @@ This threshold provides a good trade-off between recall and precision, which is 
 
 ## Phase 2: Template Rendering and 2D–3D Correspondences *(Ongoing)*
 In the classical pipeline, we adopt a template-based approach.
-
+- Meshes are used for rendering and geometric reasoning, while point clouds are primarily used for sensor-based perception.
 - The CAD model of the object is rendered from multiple viewpoints using known camera intrinsics and synthetic poses.
 - Each rendered template provides a direct correspondence between 2D image features and 3D model points.
 - During inference, features from the input image are matched to template features using nearest-neighbor search.
